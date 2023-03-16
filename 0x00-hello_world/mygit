@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# Ajouter tous les fichiers modifiés à l'index
 git add .
-git commit -m 'my commit'
+
+# Effectuer un commit avec un message
+read -p "Entrez votre message de commit : " message
+git commit -m "$message"
+
+# Pousser les modifications vers la branche actuelle
 git push
