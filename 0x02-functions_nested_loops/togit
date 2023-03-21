@@ -3,6 +3,6 @@
 git add .
 
 read -p "write your commit message here: " msg
-git commit -m $msg
+git commit -m "$msg"
 
 git push
