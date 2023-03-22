@@ -11,13 +11,17 @@
 int main(void)
 {
 	int i;
+	unsigned long a = 0, b = 1, c;
 
-	for (i = 0; i <= 50; i++)
+	for (i = 0; i < 50; i++)
 	{
-		if (i == 0 || i == 1)
-			printf("%d, ", i);
-		printf("%d", ((i - 1) + (i - 2)));
-		if (i < 50)
+		printf("%lu", a);
+		c = a + b;
+		a = b;
+		b = c;
+		if (i == 49)
+			printf("\n");
+		else
 			printf(", ");
 	}
 	return (0);
