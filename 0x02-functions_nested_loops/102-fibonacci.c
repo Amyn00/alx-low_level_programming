@@ -10,19 +10,26 @@
 
 int main(void)
 {
-	int i;
-	unsigned long a = 1, b = 1, c;
+	long int sum;
+	long int first, second;
+	int count;
 
-	for (i = 2; i < 50; i++)
+	sum = 0;
+	first = 0;
+	second = 1;
+	count = 0;
+
+	while (count < 49)
 	{
-		printf("%lu", a);
-		c = a + b;
-		a = b;
-		b = c;
-		if (i == 49)
-			printf("\n");
-		else
-			printf(", ");
+		sum = first + second;
+		printf("%li, ", sum);
+		first = second;
+		second = sum;
+
+		count++;
 	}
+	sum = first + second;
+	printf("%li\n", sum);
+
 	return (0);
 }
