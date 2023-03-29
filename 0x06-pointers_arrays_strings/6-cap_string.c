@@ -14,17 +14,26 @@ char *cap_string(char *s)
 	int a[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
 	i = 0;
-
-	while (s[i])
+	while (*(s + i) != '\0')
 	{
-		if (s[i] == a[1])
-			s[i] = ' ';
-		for (j = 0; j < 13; j++)
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
 		{
-			if (s[i] == a[j])
-				s[i + 1] = toupper(s[i + 1]);
+			if (i == 0)
+			{
+				*(s + i) = *(s + i) - 32;
+			}
+			else
+			{
+				for (j = 0; j <= 12; j++)
+				{
+					if (a[j] == *(s + i - 1))
+					{
+						*(s + i) = *(s + i) - 32;
+					}
+				}
+			}
 		}
-		i++;
+	i++;
 	}
 	return (s);
 }
