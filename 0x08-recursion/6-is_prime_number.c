@@ -13,7 +13,7 @@ int _isPN(int x, int y)
 		if (x % y == 0)
 			return (0);
 		else
-			return _isPN(x, y + 1);
+			return (_isPN(x, y + 1));
 	}
 	else
 		return (1);
