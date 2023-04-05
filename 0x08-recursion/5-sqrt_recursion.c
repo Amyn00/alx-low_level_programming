@@ -12,7 +12,7 @@ int _sqrt(int x, int y)
 	if (x == y * y)
 		return (y);
 	else if (y < x)
-		return (_sqrt(x, ++y));
+		return (_sqrt(x, y + 1));
 	else
 		return (-1);
 }
