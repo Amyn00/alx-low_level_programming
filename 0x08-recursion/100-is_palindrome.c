@@ -16,19 +16,19 @@ int _lenght(char *s)
 
 /**
  * _isPalindrome - palindrome reverse
- * @c: input
+ * @s: input
  * @len: input
  * Return: 1 or 0
  */
 
 int _isPalindrome(char *s, int len)
 {
-	if(*s == *(s + 1))
+	if (*s == *(s + 1))
 	{
 		if (len <= 0)
 			return (1);
 		else
-			return (_isPalindrome(++s, len - 1));
+			return (_isPalindrome(++s, len - 2));
 	}
 	else
 		return (0);
