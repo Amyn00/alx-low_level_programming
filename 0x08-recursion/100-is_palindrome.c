@@ -9,29 +9,28 @@
 int _lenght(char *s)
 {
 	if (*s == '\0')
-		return (1);
+		return (0);
 	else
-		return (1 + _lenght(++s));
+		return (1 + _lenght(s + 1));
 }
 
 /**
  * _isPalindrome - palindrome reverse
  * @s: input
- * @len: input
+ * @x1: input
+ * @x2: input
  * Return: 1 or 0
  */
 
-int _isPalindrome(char *s, int len)
+int _isPalindrome(char *s, int x1, int x2)
 {
-	if (*s == *(s + 1))
+	if (*(s + x1) == *(s + x2))
 	{
-		if (len <= 0)
+		if (x1 == x2 || x1 == x2 + 1)
 			return (1);
-		else
-			return (_isPalindrome(++s, len - 2));
+		return (0 + _isPalindrome(s, x1 + 1, x2 - 1));
 	}
-	else
-		return (0);
+	return (0);
 }
 
 /**
@@ -43,10 +42,7 @@ int _isPalindrome(char *s, int len)
 
 int is_palindrome(char *s)
 {
-	int _isPalindrome(char *s, int len);
-	int _lenght(char *s);
-	int len;
-
-	len = _lenght(s) - 1;
-	return (_isPalindrome(s, --len));
+	if (*s == '\0')
+		return (1);
+	return (_isPalindrome(s, 0, _lenght(s) - 1));
 }
