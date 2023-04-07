@@ -9,13 +9,14 @@
 
 int main(int argc, char *argv[])
 {
-	int x, y;
+	int x, y, mul;
 
 	if (argc > 1 && argc < 4)
 	{
 		x = atoi(argv[1]);
 		y = atoi(argv[2]);
-		printf("%d\n", x * y);
+		mul = x * y;
+		printf("%d\n", mul);
 
 		return (0);
 	}
