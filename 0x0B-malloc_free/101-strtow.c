@@ -32,7 +32,7 @@ char **strtow(char *str)
 					break;
 				c++;
 			}
-			*(nstr + j) = (char *)malloc(c + 1 * sizeof(char));
+			*(nstr + j) = (char *)malloc((c + 1) * sizeof(char));
 			if (*(nstr + j) == NULL)
 			{
 				for (k = 0; k <= j; k++)
