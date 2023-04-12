@@ -15,13 +15,10 @@ char **strtow(char *str)
 	{
 		if (str[i] == ' ' && (str[i + 1] != ' ' || str[i + 1] == '\0'))
 			x++;
-		else if (i == 0)
-			x++;
 	}
-	x++;
 	if (x == 1)
 		return (NULL);
-	nstr = (char **)malloc(sizeof(char *) * x);
+	nstr = (char **)malloc(sizeof(char *) * x + 1);
 	if (nstr == NULL)
 		return (NULL);
 	for (wf = 0; str[wf] && j <= x; wf++)
