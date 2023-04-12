@@ -11,7 +11,7 @@ char **strtow(char *str)
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	while (str[++i])
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] == ' ' && (str[i + 1] != ' ' || str[i + 1] == '\0'))
 			x++;
@@ -31,7 +31,7 @@ char **strtow(char *str)
 				c++;
 			}
 			*(nstr + j) = (char *)malloc(c + 1 * sizeof(char));
-			if ((*nstr + j) == NULL)
+			if (*(nstr + j) == NULL)
 			{
 				for (k = 0; k <= j; k++)
 				{
