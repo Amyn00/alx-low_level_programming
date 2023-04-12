@@ -31,13 +31,11 @@ int count_words(char *str)
 	for (i = 0; *(str + i); i++)
 		len++;
 	for (i = 0; i < len; i++)
-	{
-		if ((*str + i) != ' ')
+		if (*(str + i) != ' ')
 		{
 			w++;
 			i += word_len(str + i);
 		}
-	}
 	return (w);
 }
 
