@@ -1,57 +1,41 @@
 #include "main.h"
+
 /**
  * strtow - write a func that split a str into words
  * @str: input
- * Return: nstr
+ * Return: s
  */
+
 char **strtow(char *str)
 {
-	int i = 0, j = 0, x = 0, k, c = 0, m, wf;
-	char **nstr, *n_str;
+	char **s;
+	int i = 0, words, w, letters, l;
 
-	if (str == NULL || *str == '\0')
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
-	for (i = 0; str[i] != '\0'; i++)
+	words = count_words(str);
+	if (words == 0)
+		return (NULL);
+	s = malloc(sizeof(char *) * (words + 1));
+	if (s == NULL)
+		return (NULL);
+	for (w = 0; w < words; w++)
 	{
-		if (str[i] == ' ' && (str[i + 1] != ' ' || str[i + 1] == '\0'))
-			x++;
-	}
-	if (x == 1)
-		return (NULL);
-	nstr = (char **)malloc(sizeof(char *) * (x + 1));
-	if (nstr == NULL)
-		return (NULL);
-	for (wf = 0; str[wf] && j <= x; wf++)
-	{
-		c = 0;
-		if (str[wf] != ' ')
+		while (str[i] == ' ')
+			i++;
+		letters = word_len(str + i);
+		s[w] = malloc(sizeof(char) * (letters + 1));
+		if (s[w] == NULL)
 		{
-			for (i = wf; str[i] != '\0'; i++)
-			{
-				if (str[i] == ' ')
-					break;
-				c++;
-			}
-			*(nstr + j) = (char *)malloc((c + 1) * sizeof(char));
-			if (*(nstr + j) == NULL)
-			{
-				for (k = 0; k <= j; k++)
-				{
-					n_str = nstr[k];
-					free(n_str);
-				}
-				free(nstr);
-				return (NULL);
-			}
-			for (m = 0; wf < i; wf++)
-			{
-				nstr[j][m] = str[wf];
-				m++;
-			}
-			nstr[j][m] = '\0';
-			j++;
+			for (; w >= 0; w--)
+				free(s[w]);
+			free(s);
+			return (NULL);
 		}
+		for (l = 0; l < letters; l++)
+			s[w][l] = str[i++];
+		s[w][l] = '\0';
 	}
-	nstr[j] = NULL;
-	return (nstr);
+	s[w] = NULL;
+	return (s);
 }
