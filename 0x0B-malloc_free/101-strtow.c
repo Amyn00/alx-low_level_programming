@@ -6,7 +6,7 @@
  */
 char **strtow(char *str)
 {
-	int i = 0, j = 0, x = 0, k, c, m, wf;
+	int i = 0, j = 0, x = 0, k, c = 0, m, wf;
 	char **nstr, *n_str;
 
 	if (str == NULL || *str == '\0')
@@ -18,7 +18,7 @@ char **strtow(char *str)
 	}
 	if (x == 1)
 		return (NULL);
-	nstr = (char **)malloc((sizeof(char *) * x) + 1);
+	nstr = (char **)malloc(sizeof(char *) * (x + 1));
 	if (nstr == NULL)
 		return (NULL);
 	for (wf = 0; str[wf] && j <= x; wf++)
