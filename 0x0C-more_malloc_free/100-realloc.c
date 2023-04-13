@@ -5,6 +5,7 @@
  * @ptr: input
  * @old_size: input
  * @new_size: input
+ * Return: new size
  */
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
