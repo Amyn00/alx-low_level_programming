@@ -4,6 +4,7 @@
  * _calloc - write a func that alloc mem for an array
  * @nmemb: input
  * @size: input
+ * Return: p
  */
 
 void *_calloc(unsigned int nmemb, unsigned int size)
