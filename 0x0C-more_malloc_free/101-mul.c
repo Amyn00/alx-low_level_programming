@@ -20,6 +20,7 @@ void _print(char *str, int l)
 	_putchar('\n');
 	free(str);
 }
+
 /**
  * mul - multiplication
  * @n: input
@@ -33,6 +34,7 @@ void _print(char *str, int l)
 char *mul(char n, char *num, int num_i, char *dest, int dest_i)
 {
 	int j, k, mul, mul2 = 0, add, add2 = 0;
+
 
 	for (j = num_i, k = dest_i; j >= 0; j--, k--)
 	{
@@ -118,7 +120,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	init(ptr, ln - 1);
-	for (ti = 12 - 1, i = 0; ti >= 0; ti--, i++)
+	for (ti = l2 - 1, i = 0; ti >= 0; ti--, i++)
 	{
 		t = mul(argv[2][ti], argv[1], l1 - 1, ptr, (ln - 2) - i);
 		if (t == NULL)
