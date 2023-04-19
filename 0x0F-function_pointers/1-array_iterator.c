@@ -1,4 +1,4 @@
-#include "funcion_pointers.h"
+#include "function_pointers.h"
 
 /**
  * array_iterator - write a func that exec a func given as a param on each ele
