@@ -17,22 +17,22 @@ size_t print_listint_safe(const listint_t *head)
 	h2 = head->next;
 	while (h2 != NULL && h2 > h1)
 	{
-		printf("[%p] %d\n", (void*) h1, h1->n);
+		printf("[%p] %d\n", (void *) h1, h1->n);
 		n++;
 		h2 = h2->next;
 		h1 = h1->next;
 		if (h1 != NULL && h2 > h1)
 		{
-			printf("[%p] %d\n", (void*) h1, h1->n);
+			printf("[%p] %d\n", (void *) h1, h1->n);
 			n++;
 			h1 = h1->next;
 		}
 	}
-	printf("[%p] %d\n", (void*) h1, h1->n);
+	printf("[%p] %d\n", (void *) h1, h1->n);
 	n++;
 	if (h2 != NULL)
 	{
-		printf("-> [%p] %d\n", (void*) h2, h2->n);
+		printf("-> [%p] %d\n", (void *) h2, h2->n);
 		exit(98);
 	}
 	return (n);
