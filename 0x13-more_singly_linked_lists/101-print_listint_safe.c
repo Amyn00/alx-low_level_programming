@@ -2,7 +2,7 @@
 /**
  * looped_listint - write func that count the num of unique nodes
  * @head: input
- * Return: num of unique nodes, otherwise 0 or exit 98
+ * Return: num of unique nodes, otherwise 0
  */
 
 size_t looped_listint(const listint_t *head)
