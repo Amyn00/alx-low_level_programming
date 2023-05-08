@@ -54,11 +54,11 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	buf = create_buf(argv[2]);
-	f_from = open(argv[1], O_RDONLY, 0664);
+	f_from = open(argv[1], O_RDONLY);
 	r  = read(f_from, buf, 1024);
 	f_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	do {
-		if (f_from == -1 || f_to == -1)
+		if (f_from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			free(buf);
