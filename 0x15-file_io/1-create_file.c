@@ -3,7 +3,7 @@
 /**
  * create_file - create a func that create a file
  * @filename: input
- * @text_content
+ * @text_content: input
  * Return: 1 on success, -1 on failure
  */
 
