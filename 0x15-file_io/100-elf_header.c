@@ -78,7 +78,7 @@ void get_data(unsigned char *ehdr)
 			printf("2's complement, big endian\n");
 			break;
 		default:
-			printf("<unknow: %x>\n", ehdr[EI_DATA]);
+			printf("<unknow: %x>\n", ehdr[EI_CLASS]);
 	}
 }
 
@@ -163,7 +163,7 @@ void get_type(unsigned int e_type, unsigned char *ehdr)
 {
 	if (ehdr[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
-	printf(" Type:                              ");
+	printf("  Type:                              ");
 	switch (e_type)
 	{
 		case ET_NONE:
@@ -193,7 +193,7 @@ void get_type(unsigned int e_type, unsigned char *ehdr)
  */
 void get_entry(unsigned long int e_entry, unsigned char *ehdr)
 {
-	printf(" Entry point address:               ");
+	printf("  Entry point address:               ");
 	if (ehdr[EI_DATA] == ELFDATA2MSB)
 	{
 		e_entry = ((e_entry << 8) & 0xFF00FF00) |
