@@ -252,16 +252,16 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
-	check_elf(h->ehdr);
+	check_elf(h->e_ident);
 	printf("ELF Header:\n");
-	get_magic(h->ehdr);
-	get_class(h->ehdr);
-	get_data(h->ehdr);
-	get_version(h->ehdr);
-	get_osabi(h->ehdr);
-	get_abi(h->ehdr);
-	get_type(h->e_type, h->ehdr);
-	get_entry(h->e_entry, h->ehdr);
+	get_magic(h->e_ident);
+	get_class(h->e_ident);
+	get_data(h->e_ident);
+	get_version(h->e_ident);
+	get_osabi(h->e_ident);
+	get_abi(h->e_ident);
+	get_type(h->e_type, h->e_ident);
+	get_entry(h->e_entry, h->e_ident);
 	free(h);
 	close_elf(o);
 	return (0);
