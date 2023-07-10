@@ -152,6 +152,22 @@ void get_info4(unsigned int e_type,
 		printf("%#lx\n", e_entry);
 }
 /**
+ * check_elf - check if is an ELF file
+ * @ehdr: input
+ */
+void check_elf(unsigned char *ehdr)
+{
+	int i = 0;
+
+	for (; i < 4; i++)
+		if (ehdr[i] != 127 && ehdr[i] != 'E' && ehdr[i] != 'L'
+				&& ehdr[i] != 'F')
+		{
+			dprintf(STDERR_FILENO, "Error: is NOT an ELF file\n");
+			exit(98);
+		}
+}
+/**
  * main - write a prog thta display info
  * @argc: input
  * @argv: input
@@ -187,6 +203,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 			dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
+	check_elf(h->e_ident);
 	printf("ELF Header:\n");
 	get_info1(h->e_ident);
 	get_info2(h->e_ident);
