@@ -188,13 +188,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 	printf("ELF Header:\n");
-	for (; i < 4; i++)
-		if (e_ident[i] != 127 && e_ident[i] != 'E' && e_ident[i] != 'L'
-				&& e_ident[i] != 'F')
-		{
-			dprintf(STDERR_FILENO, "Error: is NOT an ELF file\n");
-			exit(98);
-		}
 	get_info1(h->e_ident);
 	get_info2(h->e_ident);
 	get_info3(h->e_ident);
