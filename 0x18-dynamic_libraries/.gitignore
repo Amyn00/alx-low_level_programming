@@ -1,3 +1,5 @@
 *.c
 len
 *.o
+calc.h
+100-tests.py
