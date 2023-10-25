@@ -1,0 +1,17 @@
+# Variables
+CC = gcc
+SRC = main.c school.c
+
+# Executable name
+EXEC = school
+
+# Rule to build the executable
+$(EXEC): $(SRC)
+	$(CC) -o $@ $^
+
+# The 'all' rule builds the executable
+all: $(EXEC)
+
+# Clean rule to remove the executable
+clean:
+	rm -f $(EXEC)
