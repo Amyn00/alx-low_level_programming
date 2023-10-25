@@ -12,24 +12,27 @@ NAME = school
 
 RM = rm -f
 
+#Define phony targets
+.PHONY: all clean oclean fclean re
+
 # Main target
 all: $(NAME)
 
-# Build executable
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) -o $@ $^
 
 # Compile each .c file into .o file
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 # Clean rules
 clean:
-	$(RM) $(OBJ) *~
+	$(RM) *~ $(OBJ)
 
 oclean: clean
-	$(RM) $(NAME)
+	$(RM) $(OBJ)
 
-fclean: oclean
+fclean: clean
+	$(RM) $(NAME)
 
 re: fclean all
 
