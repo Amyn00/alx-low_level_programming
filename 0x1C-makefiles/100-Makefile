@@ -10,7 +10,7 @@ OBJ = $(SRC:.c=.o)
 
 NAME = school
 
-RM = /bin/rm -f
+RM = rm -f
 
 # Main target
 all: $(NAME)
