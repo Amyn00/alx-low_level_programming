@@ -1,22 +1,27 @@
+# Makee file for school executable
+
 # Variables
 CC = gcc
-SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
-NAME = school
-RM = /bin/rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Executable and its dependencies
+SRC = main.c school.c
+
+OBJ = $(SRC:.c=.o)
+
+NAME = school
+
+RM = /bin/rm -f
+
+# Main target
+all: $(NAME)
+
+# Build executable
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 # Compile each .c file into .o file
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-
-# The 'all' rule builds the executable
-all: $(NAME)
-
 # Clean rules
 clean:
 	$(RM) $(OBJ) *~
@@ -26,7 +31,6 @@ oclean: clean
 
 fclean: oclean
 
-# Re rule to forces recompilation of all source files
 re: fclean all
 
 # Ensure that m.h header file exists
