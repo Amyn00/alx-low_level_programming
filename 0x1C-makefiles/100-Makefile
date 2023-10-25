@@ -1,16 +1,16 @@
 # Makee file for school executable
 
 # Variables
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -pedantic
+CC := gcc
+CFLAGS := -Wall -Werror -Wextra -pedantic
 
-SRC = main.c school.c
+SRC := main.c school.c
 
-OBJ = $(SRC:.c=.o)
+OBJ := $(SRC:.c=.o)
 
-NAME = school
+NAME := school
 
-RM = rm -f
+# RM := rm -f
 
 #Define phony targets
 .PHONY: all clean oclean fclean re
@@ -26,15 +26,19 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 # Clean rules
 clean:
-	$(RM) *~ $(OBJ)
+	-@$(RM) *~ $(OBJ)
 
 oclean: clean
-	$(RM) $(OBJ)
+	-@$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	-@$(RM) $(NAME)
 
 re: fclean all
 
 # Ensure that m.h header file exists
 $(OBJ): m.h
+
+# Check for the existence of the header file
+main.h:
+@test -e $@ || (echo "Error: main.h not found in the current directory"; exit 1)
